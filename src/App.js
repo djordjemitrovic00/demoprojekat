@@ -11,6 +11,7 @@ import { StarWarsApi } from './components/StarWarsApi';
 import { Login } from './components/Login';
 import { useSelector } from 'react-redux';
 import { Forma } from './components/Forma';
+import { NotFoundPage } from './components/NotFoundPage';
 
 
 
@@ -42,10 +43,16 @@ function App() {
 
         </ul>
       </nav>
+      <Switch>
       <Route exact path="/forma"><Forma/></Route>
       <Route exact path="/starwars"><StarWarsApi/></Route>  
       <Route exact path="/"><Home/></Route>
       <Route exact path="/login"><Login/></Route>
+      <Route path="*">
+      
+        <NotFoundPage/>
+      </Route>
+      </Switch>
     </div>
   )
 }

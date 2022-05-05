@@ -26,3 +26,7 @@ export const Input = styledComponents.input`
 `
 export const Option = styledComponents.option`
 `
+export const BigText = styledComponents.h1`
+    text-align: center;
+    margin-top: 100px;
+`

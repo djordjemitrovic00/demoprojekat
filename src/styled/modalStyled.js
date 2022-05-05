@@ -239,7 +239,7 @@ export const ModalConfirmButtonStyled = styledComponents.button`
 `
 export const ModalUpdateTitleStyled = styledComponents.header`
     text-align: center;
-    color: white;
+    color: white;np
     font-size: 110%;
     top: 15px;
     @media (max-width: 768px) {
@@ -279,7 +279,7 @@ export const ModalScreenUpdateStyled = styledComponents.form`
     flex: 1;
     margin-top: 50px;
     @media (max-width: 768px) {
-        margin-top: 20px;
+        margin-top: 50px;
     }
 `
 export const UpdateLabel = styledComponents.label`
