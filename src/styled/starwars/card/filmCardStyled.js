@@ -1,10 +1,10 @@
 import styledComponents from "styled-components";
 
 export const FilmsContainerStyled = styledComponents.div`
-    height: 37vh;
+    height: 20%;
     @media (max-width: 768px) {
         margin-top: 5px;
-        height: 35vh;
+        height: 80%;
     }
 `
 
@@ -53,14 +53,22 @@ export const ExpandingSignStyled = styledComponents.div`
     font-weight: bold;
     font-size: 30px;
     line-height: 25px;
+    position: absolute;
+    right: 20px;
 `
 export const FilmCardHeaderTitleStyled = styledComponents.div`
     display: inline-block;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        text-align: left;
+    }
+
 `
 
-export const FilmContainerTitleStyled = styledComponents.div`
+export const FilmContainerTitleStyled = styledComponents.header`
     font-weight: bold;
     font-size: 20px;
     text-align: center;

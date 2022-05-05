@@ -6,6 +6,8 @@ import { PeopleCard } from "./peopleCard/PeopleCard";
 import { ModalPeople } from "./modals/modalPeople/ModalPeople";
 import { getIdFromPeople } from "../helper/getIdFromPeople";
 import { LoadMoreButtonStyled } from "../styled/helperStyled";
+import { useHistory } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 
 
 
@@ -24,14 +26,17 @@ export const StarWarsApi = () => {
         dispatch(getStarWarsPeople(page));
         setPage(prevState => prevState+1)
     }
+    const history = useHistory();
+    const routeMatch = useRouteMatch();
 
 
     const closeModalHandler = () => {
         setIsModalShown(false);
     }
     const clickPeopleHandler = (item) => {
-        setIsModalShown(true);
-        setItemId(getIdFromPeople(item));
+        history.push({
+            pathname: `${routeMatch.path}/${item.id}`
+        })
     }
     const loadMoreHandler = (item) => {
         loadPeople();

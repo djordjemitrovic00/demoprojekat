@@ -12,6 +12,7 @@ import { Login } from './components/Login';
 import { useSelector } from 'react-redux';
 import { Forma } from './components/Forma';
 import { NotFoundPage } from './components/NotFoundPage';
+import { Character } from './components/peoplePage/Character';
 
 
 
@@ -32,7 +33,7 @@ function App() {
             <Link to="/forma" className="stil">Forma</Link>
           </li>
           <li>
-            <Link to="/starwars" className='stil'>Star Wars</Link>
+            <Link to="/characters" className='stil'>Star Wars</Link>
           </li>
           {!isLogined && <li>
             <Link to="/login" className='stil'>Login</Link>
@@ -45,7 +46,8 @@ function App() {
       </nav>
       <Switch>
       <Route exact path="/forma"><Forma/></Route>
-      <Route exact path="/starwars"><StarWarsApi/></Route>  
+      <Route exact path="/characters"><StarWarsApi/></Route>
+      <Route path="/characters/:character_id"><Character/></Route>  
       <Route exact path="/"><Home/></Route>
       <Route exact path="/login"><Login/></Route>
       <Route path="*">

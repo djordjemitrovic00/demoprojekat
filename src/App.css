@@ -1,10 +1,4 @@
-/* .App {
-  text-align: center;
-  height: 500px;
-  width: 97%;
-  margin: 10px;
 
-}
 .AppCrna {
   background-color: brown;
 }
@@ -12,7 +6,7 @@
   background-color: aquamarine;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -88,7 +82,7 @@ nav ul li {
   font-weight: bold;
   font-size: 120%;
   
-}
+} */
 
 
 
@@ -99,7 +93,7 @@ nav ul li {
   to {
     transform: rotate(360deg);
   }
-} */
+}
 * {
   box-sizing: border-box;
-}
+} 

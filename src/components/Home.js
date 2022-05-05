@@ -27,7 +27,7 @@ export const Home = () => {
   return (
     <div className={naz}>
       <input onChange={inputHandler} type="text" />
-      <button onClick={() => { dispatch({ type: "IZBRISI", val: 1 }) }} />
+      <button onClick={() => { ctx.postaviBeluTemu() }} />
     </div>
   );
 }
