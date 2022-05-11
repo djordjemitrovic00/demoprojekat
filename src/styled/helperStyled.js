@@ -30,3 +30,7 @@ export const BigText = styledComponents.h1`
     text-align: center;
     margin-top: 100px;
 `
+export const FieldContainer = styledComponents.div`
+    display: flex;
+    flex-direction: column;
+`

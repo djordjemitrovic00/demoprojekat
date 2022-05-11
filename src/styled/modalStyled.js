@@ -75,6 +75,10 @@ export const ModalContentConfirm = styledComponents.div`
         width: 30%;
     }
 
+    @media (max-width: 1024px) {
+        width: 50%;
+    }
+
     @media (max-width: 768px) {
         width: 80%;
         height: 85%;
@@ -291,8 +295,7 @@ export const UpdateLabel = styledComponents.label`
 export const UpdateInputTextStyled = styledComponents(Field)`
     flex: 1;
     flex-grow: 4;
-    margin: 5px 0;
-    padding: 5px 0;
+    padding: 11px 0;
     border-radius: 20px;
     padding-left: 10px;
     margin-left: 10px;
@@ -311,6 +314,11 @@ export const UpdateInputTextStyled = styledComponents(Field)`
     }
     &:focus-visible {
         outline: 0;
+    }
+    @media (max-width: 768px) {
+        position: relative;
+        top: -10px;
+        margin-bottom: 10px;
     }
 `
 export const UpdateInputTextErrorStyled = styledComponents(Field)`
@@ -335,7 +343,6 @@ export const UpdateFieldSelect = styledComponents(Field)`
 export const UpdateFieldContainer = styledComponents.div`
     display: flex;
     flex-direction: row;
-    margin-top: 15px;
     @media (max-width: 768px) {
         margin-top: 7px;
         flex-direction: column;
@@ -349,28 +356,32 @@ export const UpdateFieldRadioButtonContainer = styledComponents.div`
 export const UpdateFieldRadioGroupContainer = styledComponents.div`
     flex: 1;
     flex-grow: 4;
+    
     @media (max-width: 768px) {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        position: relative;
+        top: -20px;
     }
 `
 export const ErrorMessageStyled = styledComponents.div`
     display: block;
+    font-size: 16px;
     color: red;
 `
 export const UpdateFieldSelectContainer = styledComponents.div`
     flex: 1;
     flex-grow: 3.7;
     box-sizing: border-box;
-    position: relative;
-    top: 5px;
+    width: 100%;
     & select {
         width:100%;
         padding: 7px 0;
     }
     @media (max-width: 768px) {
-        padding: 8px 0;
+        position: relative;
+        top: -15px;
     }
 `
 export const ModalPeopleContainer = styledComponents.div`

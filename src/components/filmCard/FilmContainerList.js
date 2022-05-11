@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import { useSelector } from "react-redux"
+import { StarWarsContext } from "../../Context/StarWarsContext";
 import { FilmContainerListStyled } from "../../styled/starwars/card/filmCardStyled"
 import { FilmCardContainer } from "./FilmCardContainer";
 
 export const FilmContainerList = () => {
-    let films = useSelector(state => state.starwars.films);
+    const ctx = useContext(StarWarsContext);
     return (
         <FilmContainerListStyled>
-            {films.map(item => (
+            {ctx.films.map(item => (
                 <FilmCardContainer film={item} key={item.episode_id}/>
             ))}
         </FilmContainerListStyled>

@@ -1,24 +1,16 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { starWarsActions } from "../../../store/slices/starWarsSlice";
-import { BackDrop, BackgroundHeaderStyled, ModalContentUpdate, ModalUpdateContainer } from "../../../styled/modalStyled"
+import { BackDrop, BackgroundHeaderStyled, ModalContentUpdate, ModalUpdateContainer, UpdateLabel } from "../../../styled/modalStyled"
 import { ModalScreenUpdate } from "./ModalScreenUpdate";
-import { ModalUpdateButton } from "./ModalUpdateButton";
 import { ModalUpdateTitle } from "./ModalUpdateTitle";
-import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 import { ModalUpdateFieldText } from "./ModalUpdateFieldText";
-import { ModalUpdateFieldRadio } from "./ModalUpdateFieldRadio";
-import { ModalUpdateFieldSelect } from "./ModalUpdateFieldSelect";
 import { ModalCloseButton } from "../ModalCloseButton";
+import { validationSchema, Gender, HeightValues } from "../../validations/characterValidation";
+import { TextField } from "../../editFields/TextField";
 
 export const ModalUpdate = (props) => {
-
-    const Gender = {
-        MALE: "male",
-        FEMALE: "female",
-        NA: "n/a"
-    }
 
     const initialState = {
         name: props.item.name,
@@ -26,19 +18,7 @@ export const ModalUpdate = (props) => {
         height: props.item.height
     }
 
-    const validationSchema = Yup.object({
-        name: Yup.string()
-            .min(4, "Name must be atleast 5 characters!")
-            .max(40, "Name cannot be longer than 40 characters!")
-            .required("Name cannot be empty!"),
-        gender: Yup.mixed().oneOf(Object.values(Gender)).required("Gender cannot be empty!"),
-        height: Yup.number("Height must be number!")
-            .integer("Height must be integer number!")
-            .positive("Height must be positive number!")
-            .min(120, "Height must be number above 0!")
-            .max(300, "Height must be number below 300!")
-            .required("Height cannot be empty!")
-    })
+
     const dispatch = useDispatch();
 
     const closeHandler = (event) => {
@@ -76,18 +56,23 @@ export const ModalUpdate = (props) => {
 
                         {formProps => (
                             <Form>
+                            <React.Fragment>
+                                <UpdateLabel>Name: </UpdateLabel>
+                                <TextField
+                                    name={`Name`} />
+                            </React.Fragment>
+                            <React.Fragment>
+                                <UpdateLabel>Gender: </UpdateLabel>
                                 <ModalUpdateFieldText
-                                    type={`Name`}
-                                    error={formProps.errors.name && formProps.touched.name} />
-                                <ModalUpdateFieldRadio
-                                    type={`Gender`}
-                                    values={Object.values(Gender)}
-                                    error={formProps.errors.gender && formProps.touched.gender} />
-                                <ModalUpdateFieldSelect
-                                    type={`Height`}
-                                    values={Array.from(Array(180).keys()).map(item => item + 120)}
-                                    error={formProps.errors.height && formProps.touched.height} />
-                                <ModalUpdateButton />
+                                    name={`Gender`}
+                                    values={Object.values(Gender)} />
+                            </React.Fragment>
+                            <React.Fragment>
+                                <UpdateLabel>Height: </UpdateLabel>
+                                <ModalUpdateFieldText
+                                    name={`Height`}
+                                    values={HeightValues} />
+                            </React.Fragment>
                             </Form>
                         )}
 

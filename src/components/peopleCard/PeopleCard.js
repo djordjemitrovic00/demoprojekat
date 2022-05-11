@@ -5,12 +5,11 @@ import { PeopleCardDetail } from "./PeopleCardDetail";
 import { PeopleCardName } from "./PeopleCardName";
 
 export const PeopleCard = (props) => {
-    const item = props.item;
     return (
         <PeopleCardContainer onClick={props.onClick}>
-            <PeopleCardName name={item.name} />
-            <PeopleCardDetail detail={item.gender.toUpperCase()} />
-            <PeopleCardDetail detail={`Height: ${item.height}`} />
+            <PeopleCardName name={props.item.name} />
+            <PeopleCardDetail detail={props.item.gender.toUpperCase()} />
+            <PeopleCardDetail detail={`Height: ${props.item.height}`} />
         </PeopleCardContainer>
     )
 }

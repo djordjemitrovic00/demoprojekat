@@ -7,7 +7,7 @@ export const ModalUpdateFieldRadio = (props) => {
         <React.Fragment>
             <UpdateFieldContainer>
 
-                <UpdateLabel>{props.type}</UpdateLabel>
+                
 
                 <UpdateFieldRadioGroupContainer>
 

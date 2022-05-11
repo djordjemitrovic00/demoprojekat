@@ -13,6 +13,9 @@ import { useSelector } from 'react-redux';
 import { Forma } from './components/Forma';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Character } from './components/peoplePage/Character';
+import { CharacterEdit } from './components/peoplePage/CharacterEdit/CharacterEdit';
+import Todo from './components/toDo/toDo';
+
 
 
 
@@ -26,6 +29,9 @@ function App() {
     <div className='App'>
       <nav>
         <ul>
+          <li className='navlogo'>
+            LOGO
+          </li>
           <li>
             <Link to="/" className='stil'>Home</Link>
           </li>
@@ -34,6 +40,9 @@ function App() {
           </li>
           <li>
             <Link to="/characters" className='stil'>Star Wars</Link>
+          </li>
+          <li>
+            <Link to="/todo" className='stil'>To Do</Link>
           </li>
           {!isLogined && <li>
             <Link to="/login" className='stil'>Login</Link>
@@ -47,9 +56,13 @@ function App() {
       <Switch>
       <Route exact path="/forma"><Forma/></Route>
       <Route exact path="/characters"><StarWarsApi/></Route>
-      <Route path="/characters/:character_id"><Character/></Route>  
+      <Route exact path="/characters/:character_id"><Character/></Route>  
+      <Route path={`/characters/:character_id/edit`}>
+          <CharacterEdit/>
+      </Route>
       <Route exact path="/"><Home/></Route>
       <Route exact path="/login"><Login/></Route>
+      <Route exact path="/todo"><Todo/></Route>
       <Route path="*">
       
         <NotFoundPage/>

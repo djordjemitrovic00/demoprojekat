@@ -14,7 +14,7 @@ export const getStarWarsFilms = (filmsToFetch) => {
                 listOfFilms.push(data);
                 console.log('podatak ubacen');
                 console.log(listOfFilms);
-            }
+        }
         dispatch(starWarsActions.addFilms(listOfFilms))
     }
 }

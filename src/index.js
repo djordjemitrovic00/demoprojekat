@@ -12,6 +12,8 @@ import { Home } from './components/Home';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import store from './store/redux';
+import { StarWarsProvider } from './Context/StarWarsContext';
+import { configureStore } from './components/toDo/todoStore/configureStore';
 
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,17 +26,19 @@ const firebaseConfig = {
   appId: "1:222334182086:web:bd329d84331da78746edc7",
   measurementId: "G-CZFHWEP76M"
 };
+
+configureStore();
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 ReactDOM.render(
   <React.StrictMode>
-    <ProbaContextProvider>
+    <StarWarsProvider>
       <Provider store={store}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </Provider>
-    </ProbaContextProvider>
+    </StarWarsProvider>
 
   </React.StrictMode>,
   document.getElementById('root')
